@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 
 const info = {
     title: 'Viaje con confianza, explore con facilidad',
@@ -20,7 +21,13 @@ const info = {
 <main class="relative mx-auto flex h-dvh items-center justify-center container bg-[#DAE1E7] overflow-hidden">
 	<nav class="absolute top-0 z-10 w-full bg-white/20 p-4 backdrop-blur-sm">
 		<div class="container mx-auto flex items-center justify-between">
-			<img src="/src/assets/isologo.svg" alt="Logo de vivipalominos.com" class="w-12 h-12" />
+			<Image
+				src="/isologo.svg"
+				alt="Logo de vivipalominos.com"
+				class="h-12 w-12"
+				width={100}
+				height={100}
+			/>
 			<a
 				href={info.ctaWsp}
 				target="_blank"
@@ -29,25 +36,34 @@ const info = {
 		</div>
 	</nav>
 	<header class="absolute top-0 z-0 w-full">
-		<picture>
-			<source srcset="/src/assets/hero-big.webp" type="image/webp" />
-			<img src="/src/assets/hero-big.jpg" alt="Hero" class="h-[500px] w-full object-cover" />
-		</picture>
+		<Image
+			src="/hero-big.webp"
+			alt="Hero"
+			class="h-[500px] w-full object-cover"
+			width={1000}
+			height={1000}
+		/>
 		<!-- AIRPLAIN -->
 		<div>
-			<img
-				src="/src/assets/airplain.png"
-				class="absolute top-20 right-0 z-20 w-80 md:top-44 md:right-10 md:w-[400px] lg:right-20 xl:right-48 2xl:right-80"
+			<Image 
+				src="/airplain.png"
+				class="absolute top-20 right-0 z-10 w-80 md:top-44 md:right-10 md:w-[400px] lg:right-20 xl:right-48 2xl:right-80"
 				alt=""
 				aria-hidden="true"
+				width={1000}
+				height={1000}
 			/>
 		</div>
 		<!-- AGENT + TEXT -->
 		<div class="absolute md:top-[400px] top-[350px] px-4 z-10 w-full">
 			<div class="flex flex-col space-y-4 space-x-8 md:flex-row max-w-7xl mx-auto">
-				<picture class="">
-					<img src="/src/assets/agent.png" class="h-56 w-48 object-cover md:h-96 md:w-56" alt={info.agent.name} />
-				</picture>
+				<Image
+					src="/src/assets/agent.png"
+					alt={info.agent.name}
+					class="h-56 w-48 object-cover md:h-96 md:w-56"
+					width={1000}
+					height={1000}
+				/>
 				<div class="flex flex-col">
 					<h1 class="mt-4 text-4xl font-extrabold md:w-[800px] md:text-7xl">
 						{info.title}
@@ -63,12 +79,26 @@ const info = {
 		</div>
 		<!-- SEPARATOR DESKTOP -->
 		<div class="absolute right-0 top-80 hidden w-full md:block">
-			<img src="/src/assets/separator.svg" class="w-full object-cover" alt="" aria-hidden="true" />
+			<Image
+				src="/src/assets/separator.svg"
+				class="w-full object-cover"
+				alt=""
+				aria-hidden="true"
+				width={1000}
+				height={1000}
+			/>
 		</div>
 		<!-- SEPARATOR MOBILE -->
 		<div class="w-full top-44 absolute md:hidden">
 			<!-- This image is decorative and serves as a visual separator -->
-			<img src="/src/assets/separator-sm.svg" class="w-full object-cover" alt="" role="separator" aria-hidden="true" />
+			<Image
+				src="/src/assets/separator-sm.svg"
+				class="w-full object-cover"
+				alt=""
+				aria-hidden="true"
+				width={1000}
+				height={1000}
+			/>
 		</div>
 	</header>
 </main>

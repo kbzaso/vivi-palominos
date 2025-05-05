@@ -6,6 +6,8 @@ I need to work in all this points
 
 - [ ] Add Internationalization
 - [ ] Add contact form
+- [ ] Add favicon
+- [ ] Add OG Images
 
 ### In Progress
 

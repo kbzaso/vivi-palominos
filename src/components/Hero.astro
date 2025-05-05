@@ -18,35 +18,32 @@ const info = {
 };
 ---
 
-<main
-  class="relative mx-auto flex h-dvh items-center justify-center bg-[var(--color-cloud)] overflow-hidden"
->
+<section>
   <Nav url={info.ctaWsp} />
-  <header class="absolute top-0 z-0 w-full">
+  <header class="relative w-full mx-auto">
     <Image
       src="/hero-big.webp"
       alt="Hero"
-      class="h-[500px] w-full object-cover"
+      class="xl:h-[550px] h-[500px] md:h-[500px] w-full object-cover"
       width={1000}
       height={1000}
-	  loading={"eager"}
+      loading={"eager"}
     />
-    <!-- AIRPLAIN -->
-    <div>
+    <!-- AGENT + TEXT -->
+    <div class="absolute md:top-[200px] top-[350px] px-4 z-10 w-full max-w-6xl left-1/2 transform -translate-x-1/2">
+      <!-- This image is decorative and serves as a visual separator -->
+      <!-- AIRPLAIN -->
       <Image
         src="/airplain.png"
-        class="absolute top-20 right-0 z-10 w-80 md:top-20 md:right-10 md:w-[400px] lg:right-20 xl:right-48 2xl:right-80"
+        class="absolute z-10 w-80 right-10 md:right-20 -top-66 md:-top-30"
         alt=""
         aria-hidden="true"
         width={1000}
         height={1000}
-		loading={"eager"}
+        loading={"eager"}
       />
-    </div>
-    <!-- AGENT + TEXT -->
-    <div class="absolute md:top-[200px] top-[350px] px-4 z-10 w-full">
       <div
-        class="flex flex-col space-y-4 space-x-8 md:flex-row max-w-7xl mx-auto md:items-end w-fit"
+        class="flex flex-col space-y-4 space-x-8 md:flex-row md:items-end w-fit"
       >
         <Image
           src="/agent.png"
@@ -54,7 +51,7 @@ const info = {
           class="h-56 w-48 object-cover md:h-96 md:w-56 shadow-md"
           width={1000}
           height={1000}
-		  loading={"eager"}
+          loading={"eager"}
         />
         <div class="flex flex-col">
           <h1 class="mt-4 text-4xl font-extrabold md:w-[800px] md:text-7xl">
@@ -62,10 +59,18 @@ const info = {
           </h1>
           <div class="mt-4 flex flex-col md:flex-row md:space-x-4">
             <span class="text-2xl">{info.agent.name}</span>
-            <a href="mailto:{info.agent.email}" class="hidden text-lg md:block underline">{info.agent.email}</a>
-            <a href="tel:{info.agent.phone}" class="hidden text-lg md:block underline">{info.agent.phone}</a>
+            <a
+              href="mailto:{info.agent.email}"
+              class="hidden text-lg md:block underline">{info.agent.email}</a
+            >
+            <a
+              href="tel:{info.agent.phone}"
+              class="hidden text-lg md:block underline">{info.agent.phone}</a
+            >
           </div>
-          <a href="#" class="shadow-md bg-[var(--color-water)] mt-4 w-fit rounded-lg px-4 py-2"
+          <a
+            href="#"
+            class="shadow-md bg-[var(--color-water)] mt-4 w-fit rounded-lg px-4 py-2"
             >{info.cta}</a
           >
         </div>
@@ -80,7 +85,7 @@ const info = {
         aria-hidden="true"
         width={1000}
         height={1000}
-		loading={"eager"}
+        loading={"eager"}
       />
     </div>
     <!-- SEPARATOR MOBILE -->
@@ -93,10 +98,10 @@ const info = {
         aria-hidden="true"
         width={1000}
         height={1000}
-		loading={"eager"}
+        loading={"eager"}
       />
     </div>
   </header>
-</main>
+</section>
 
 <style></style>

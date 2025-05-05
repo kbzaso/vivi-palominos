@@ -18,7 +18,7 @@ const info = {
 };
 ---
 
-<section>
+<section class="min-w-[320px]">
   <Nav url={info.ctaWsp} />
   <header class="relative w-full mx-auto">
     <Image
@@ -30,8 +30,9 @@ const info = {
       loading={"eager"}
     />
     <!-- AGENT + TEXT -->
-    <div class="absolute md:top-[200px] top-[350px] px-4 z-10 w-full max-w-6xl left-1/2 transform -translate-x-1/2">
-      <!-- This image is decorative and serves as a visual separator -->
+    <div
+      class="absolute md:top-[200px] top-[350px] px-4 z-10 w-full max-w-6xl left-1/2 transform -translate-x-1/2"
+    >
       <!-- AIRPLAIN -->
       <Image
         src="/airplain.png"
@@ -43,21 +44,21 @@ const info = {
         loading={"eager"}
       />
       <div
-        class="flex flex-col space-y-4 space-x-8 md:flex-row md:items-end w-fit"
+        class="flex flex-col space-x-8 md:flex-row md:items-end w-fit"
       >
         <Image
           src="/agent.png"
           alt={info.agent.name}
-          class="h-56 w-48 object-cover md:h-96 md:w-56 shadow-md"
+          class="h-56 w-48 object-cover md:h-96 md:w-56 shadow-md rounded-lg"
           width={1000}
           height={1000}
           loading={"eager"}
         />
         <div class="flex flex-col">
-          <h1 class="mt-4 text-4xl font-extrabold md:w-[800px] md:text-7xl">
+          <h1 class="mt-4 text-4xl md:text-6xl font-extrabold md:max-w-[800px] lg:text-7xl">
             {info.title}
           </h1>
-          <div class="mt-4 flex flex-col md:flex-row md:space-x-4">
+          <div class="mt-4 flex flex-col md:flex-row md:space-x-4 flex-wrap">
             <span class="text-2xl">{info.agent.name}</span>
             <a
               href="mailto:{info.agent.email}"
@@ -77,10 +78,10 @@ const info = {
       </div>
     </div>
     <!-- SEPARATOR DESKTOP -->
-    <div class="absolute right-0 top-56 hidden w-full md:block">
+    <div class="absolute right-0 z-0 top-56 hidden w-full md:block">
       <Image
         src="/separator.svg"
-        class="w-full object-cover"
+        class="w-full object-cover z-0"
         alt=""
         aria-hidden="true"
         width={1000}
@@ -93,7 +94,7 @@ const info = {
       <!-- This image is decorative and serves as a visual separator -->
       <Image
         src="/separator-sm.svg"
-        class="w-full object-cover"
+        class="w-full object-cover z-0"
         alt=""
         aria-hidden="true"
         width={1000}

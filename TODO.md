@@ -4,11 +4,15 @@ I need to work in all this points
 
 ### Todo
 
-- [ ] Add sections
+- [ ] Add Internationalization
 - [ ] Add contact form
 
 ### In Progress
 
-- [ ] Responsive Hero
+- [ ] Add sections
+  - [ ] Stylize all the content
+  - [ ] Translate all the content
 
 ### Done ✓
+
+- [x] Responsive Hero

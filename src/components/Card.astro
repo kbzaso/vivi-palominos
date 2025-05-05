@@ -1,0 +1,35 @@
+---
+import { Image } from "astro:assets";
+
+const { specificClass, content } = Astro.props;
+---
+
+<div class={`z-10 relative w-full lg:max-w-[500px] ${specificClass}`}>
+  <Image
+    src={content.image}
+    alt="Card"
+    class="h-70 object-cover w-full rounded-lg shadow-md"
+    width={500}
+    height={500}
+    loading={"lazy"}
+  />
+  <div class="relative">
+    <Image
+      src={content.svg}
+      alt="airplain route"
+      aria-hidden="true"
+      class="absolute top-4 md:hidden block"
+      width={38}
+      height={320}
+      loading={"lazy"}
+    />
+    <div class="pl-12 md:pl-0">
+      <h2 class="font-bold text-2xl py-4 mt-2 bg-[var(--color-cloud)]">
+        {content.title}
+      </h2>
+      <p class="text-lg text-pretty">
+        {content.text}
+      </p>
+    </div>
+  </div>
+</div>

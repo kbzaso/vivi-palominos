@@ -1,0 +1,73 @@
+---
+import { Image } from "astro:assets";
+import Card from "./Card.astro";
+
+const featuresMobile = {
+  first: {
+    title: "Fisrt Title",
+    text: "Hello there! I'm Viviana, and I'm thrilled to be your personal gateway to the world's most captivating destinations. With over 30 years of experience as a travel agent, I've dedicated my career to crafting unforgettable journeys that go beyond the ordinary.",
+    image: "/plain-view.webp",
+    svg: "/airplain-route-mobile.svg",
+  },
+  second: {
+    title: "Second Title",
+    text: "Certified Expert: As a Certified Travel Associate (CTA) and Destination Specialist for regions including the Caribbean, Europe, and Asia, I bring a wealth of knowledge to every itinerary.",
+    image: "/02.webp",
+    svg: "/airplain-route-mobile.svg",
+  },
+  third: {
+    title: "Third Title",
+    text: "When you work with me, you're not just getting a travel agent – you're gaining a travel companion, problem-solver, and dream-weaver all rolled into one. I'm here to:",
+    image: "/03.webp",
+    svg: "/airplain-route-mobile.svg",
+  },
+  fourth: {
+    title: "Fourth Title",
+    text: "With a passion for travel and a commitment to excellence, I ensure that every detail of your journey is meticulously planned and executed.",
+    image: "/04.webp",
+    svg: "/airplain-route-mobile.svg",
+  },
+};
+---
+
+<section class="mx-auto w-full max-w-6xl px-4 mt-96 md:mt-48">
+  <div class="flex justify-between flex-col md:flex-row gap-4 relative">
+    <Card content={featuresMobile.first} />
+    <div>
+      <Image
+        src="/airplain-route.svg"
+        alt="airplain route"
+        aria-hidden="true"
+        class="absolute left-1/2 lg:-top-36 xl:-top-48 -translate-x-1/2 hidden lg:block"
+        width={90}
+        height={100}
+        loading={"lazy"}
+      />
+    </div>
+    <Card specificClass="pt-10 md:mt-60" content={featuresMobile.second} />
+  </div>
+  <div
+    class="flex justify-between flex-col md:flex-row mt-10 md:-mt-28 relative gap-4"
+  >
+    <Card content={featuresMobile.third} />
+    <Image
+      src="/boat-route.svg"
+      alt="airplain route"
+      aria-hidden="true"
+      class="absolute -top-96 left-1/2 -translate-x-1/2 hidden lg:block"
+      width={58}
+      height={320}
+      loading={"lazy"}
+    />
+    <Image
+      src="/boat-route.svg"
+      alt="airplain route"
+      aria-hidden="true"
+      class="absolute top-56 left-1/2 -translate-x-1/2 hidden lg:block"
+      width={58}
+      height={320}
+      loading={"lazy"}
+    />
+    <Card specificClass="pt-10 md:mt-60" content={featuresMobile.fourth} />
+  </div>
+</section>

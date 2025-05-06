@@ -14,9 +14,11 @@ I need to work in all this points
 
 - [ ] Add sections
   - [ ] Stylize all the content
-  - [ ] Translate all the content
+  - [ ] Translate all the content to spanish
+- [ ] ADD: Form
 
 ### Done ✓
 
 - [x] Responsive Hero
-- [ ] Add footer
+- [x] Add Footer
+- [x] Add Description

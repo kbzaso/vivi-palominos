@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import Time from "./Time.astro";
 ---
 
-<section class="w-full md:min-w-[450px] mx-auto max-w-6xl flex flex-col md:flex-row gap-10 my-10 px-4">
+<section class="w-full md:min-w-[450px] mx-auto max-w-6xl flex flex-col lg:flex-row gap-10 my-10 px-4 md:mt-0 lg:-mt-30 mt-40">
   <div class="w-full lg:w-1/2">
     <h3 class="font-extrabold text-3xl py-4 mt-2 bg-[var(--color-cloud)] flex items-center justify-center md:justify-start gap-2">¡El destino lo eliges tú!
         <Image 
@@ -94,7 +94,7 @@ import Time from "./Time.astro";
         <div class="sm:col-span-2">
           <label
             for="message"
-            class="block text-sm/6 font-semibold text-gray-500">Mensaje</label
+            class="block text-sm/6 font-semibold text-gray-500">Cuentame que tienes en mente</label
           >
           <div class="mt-2.5">
             <textarea

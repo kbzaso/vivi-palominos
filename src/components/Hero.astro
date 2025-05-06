@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Nav from "./Nav.astro";
+import { Mail, Phone } from "@lucide/astro";
 
 const info = {
   title: "Viaja con confianza, explora con facilidad",
@@ -58,20 +59,20 @@ const info = {
           <h1 class="mt-4 text-4xl md:text-6xl font-extrabold md:max-w-[800px] lg:text-7xl">
             {info.title}
           </h1>
-          <div class="mt-4 flex flex-col md:flex-row md:space-x-4 flex-wrap">
+          <div class="mt-4 flex flex-col md:flex-row md:space-x-4 item-start md:items-end flex-wrap">
             <span class="text-2xl">{info.agent.name}</span>
             <a
               href="mailto:{info.agent.email}"
-              class="hidden text-lg md:block underline">{info.agent.email}</a
+              class="text-lg underline flex gap-2 hover:text-[var(--color-sky)] global-focus rounded-xs text-gray-500"><Mail /> {info.agent.email}</a
             >
             <a
               href="tel:{info.agent.phone}"
-              class="hidden text-lg md:block underline">{info.agent.phone}</a
+              class="text-lg underline global-focus flex gap-2 hover:text-[var(--color-sky)] rounded-xs text-gray-500"><Phone /> {info.agent.phone}</a
             >
           </div>
           <a
             href="#"
-            class="shadow-md bg-[var(--color-water)] mt-4 w-fit rounded-lg px-4 py-2"
+            class="global-button w-full md:w-fit mt-4 global-focus"
             >{info.cta}</a
           >
         </div>
@@ -104,5 +105,3 @@ const info = {
     </div>
   </header>
 </section>
-
-<style></style>

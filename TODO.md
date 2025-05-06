@@ -12,13 +12,14 @@ I need to work in all this points
 
 ### In Progress
 
+- [ ] ADD: Time box
 - [ ] Add sections
   - [ ] Stylize all the content
   - [ ] Translate all the content to spanish
-- [ ] ADD: Form
 
 ### Done ✓
 
 - [x] Responsive Hero
 - [x] Add Footer
 - [x] Add Description
+- [x] ADD: HTML structure Form

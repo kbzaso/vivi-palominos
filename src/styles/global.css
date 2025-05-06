@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+.global-focus {
+  @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-sky)];
+}
+
+.global-button {
+  @apply block rounded-md bg-[var(--color-water)] px-3.5 py-2.5 text-center text-sm font-semibold text-[var(--color-night)] shadow-xs hover:bg-[var(--color-water)]/75 cursor-pointer;
+}

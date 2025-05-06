@@ -8,6 +8,7 @@ I need to work in all this points
 - [ ] Add contact form
 - [ ] Add favicon
 - [ ] Add OG Images
+- [ ] Add [custom font](https://astro.build/blog/astro-570/?ref=dailydev)
 
 ### In Progress
 
@@ -18,3 +19,4 @@ I need to work in all this points
 ### Done ✓
 
 - [x] Responsive Hero
+- [ ] Add footer

@@ -1,1 +1,38 @@
-Time box
+---
+const getCurrentTimeInSantiago = () => {
+  const options: Intl.DateTimeFormatOptions = {
+    timeZone: "America/Santiago",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  };
+  const time = new Intl.DateTimeFormat("es-CL", options).format(new Date());
+  return `${time} hrs.`;
+  return new Intl.DateTimeFormat("es-CL", options).format(new Date());
+};
+const getSantiagoGMT = () => {
+  const now = new Date();
+  const santiagoTime = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/Santiago",
+    timeZoneName: "short",
+  }).formatToParts(now);
+
+  const gmtPart = santiagoTime.find((part) => part.type === "timeZoneName");
+  return gmtPart ? gmtPart.value : "GMT-4";
+};
+
+const gmt = getSantiagoGMT();
+const currentTime = getCurrentTimeInSantiago();
+---
+
+<section
+  class="bg-[var(--color-water)] w-full h-48 rounded-md border-4 border-dashed p-4 flex flex-col justify-between"
+>
+  <div>
+    <h4 class="font-extrabold text-3xl pb-2">Horarios de atención:</h4>
+    <p>Lunes a Viernes de 8 a 18 hrs. ({gmt})</p>
+  </div>
+  <span class="bg-[var(--color-cloud)] font-extrabold text-xl p-2 rounded-md">
+    {currentTime} 🇨🇱
+  </span>
+</section>

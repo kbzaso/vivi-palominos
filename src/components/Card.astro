@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 
-const { specificClass, content } = Astro.props;
+const { specificClass, content, loading } = Astro.props;
 ---
 
 <div class={`z-10 relative w-full lg:max-w-[500px] ${specificClass}`}>
@@ -11,7 +11,7 @@ const { specificClass, content } = Astro.props;
     class="h-70 object-cover w-full rounded-lg shadow-md"
     width={500}
     height={500}
-    loading={"lazy"}
+    loading={loading}
   />
   <div class="relative">
     <Image

@@ -1,20 +1,48 @@
 ---
 import { Image } from "astro:assets";
 import Time from "./Time.astro";
+
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+    const firstName = data.get("first-name");
+    const lastName = data.get("last-name");
+    const email = data.get("email");
+    const phone = data.get("phone");
+    const company = data.get("company");
+    const message = data.get("message");
+    // Do something with the data
+
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+}
 ---
 
-<section class="w-full md:min-w-[450px] mx-auto max-w-6xl flex flex-col lg:flex-row gap-10 my-10 px-4 md:mt-20 lg:-mt-30 mt-40">
+<section
+  class="w-full md:min-w-[450px] mx-auto max-w-6xl flex flex-col lg:flex-row gap-10 my-10 px-4 md:mt-20 lg:-mt-30 mt-40"
+>
   <div class="w-full lg:w-1/2">
-    <h3 class="font-extrabold text-3xl py-4 mt-2 bg-[var(--color-cloud)] flex items-center justify-center lg:justify-start gap-2">¡El destino lo eliges tú!
-        <Image 
-            src="/ubication.svg"
-            alt="Ilustración de un hombre con un mapa"
-            class="w-6 h-6"
-            width={6}
-            height={6}
-        />
+    <h3
+      class="font-extrabold text-3xl py-4 mt-2 bg-[var(--color-cloud)] flex items-center justify-center lg:justify-start gap-2"
+    >
+      ¡El destino lo eliges tú!
+      <Image
+        src="/ubication.svg"
+        alt="Ilustración de un hombre con un mapa"
+        class="w-6 h-6"
+        width={6}
+        height={6}
+      />
     </h3>
-    <form id="contact-form" action="#" method="POST" class="mx-auto md:max-w-xl">
+    <form
+      id="contact-form"
+      action="#"
+      method="POST"
+      class="mx-auto md:max-w-xl"
+    >
       <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
         <div>
           <label
@@ -27,6 +55,7 @@ import Time from "./Time.astro";
               name="first-name"
               id="first-name"
               autocomplete="given-name"
+              required
               class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 global-focus"
             />
           </div>
@@ -38,6 +67,7 @@ import Time from "./Time.astro";
           >
           <div class="mt-2.5">
             <input
+              required
               type="text"
               name="last-name"
               id="last-name"
@@ -71,30 +101,32 @@ import Time from "./Time.astro";
               name="email"
               id="email"
               autocomplete="email"
+              required
               class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-500 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 global-focus"
             />
           </div>
         </div>
 
         <div class="sm:col-span-2">
-            <label for="email" class="block text-sm/6 font-semibold text-gray-500"
-              >Teléfono</label
-            >
-            <div class="mt-2.5">
-              <input
-                type="tel"
-                name="phone"
-                id="phone"
-                autocomplete="phone"
-                class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-500 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 global-focus"
-              />
-            </div>
+          <label for="email" class="block text-sm/6 font-semibold text-gray-500"
+            >Teléfono</label
+          >
+          <div class="mt-2.5">
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              autocomplete="phone"
+              class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-500 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 global-focus"
+            />
           </div>
+        </div>
 
         <div class="sm:col-span-2">
           <label
             for="message"
-            class="block text-sm/6 font-semibold text-gray-500">Cuentame que tienes en mente</label
+            class="block text-sm/6 font-semibold text-gray-500"
+            >Cuentame que tienes en mente</label
           >
           <div class="mt-2.5">
             <textarea
@@ -107,9 +139,7 @@ import Time from "./Time.astro";
         </div>
       </div>
       <div class="mt-10">
-        <button
-          type="submit"
-          class="global-button w-full global-focus"
+        <button type="submit" class="global-button w-full global-focus"
           >Enviar</button
         >
       </div>

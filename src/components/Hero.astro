@@ -29,7 +29,7 @@ const info: Info = {
   ctaWsp: "https://wa.me/56999974471",
   agent: {
     name: "Viviana Palominos",
-    photo: "/agent.png",
+    photo: "/vivi.webp",
     email: "vivi@vivipalominos.com",
     phone: "+569 9997 4471",
   },
@@ -65,7 +65,7 @@ const info: Info = {
         class="flex flex-col space-x-8 md:flex-row md:items-end -mt-20 md:mt-0 w-full"
       >
         <Image
-          src="/agent.png"
+          src="/vivi.webp"
           alt={info.agent.name}
           class="h-56 w-48 object-cover md:h-96 md:w-56 shadow-md rounded-lg self-center md:self-start"
           width={1000}
@@ -84,7 +84,7 @@ const info: Info = {
             <span class="text-2xl text-center mb-4 lg:mb-0">{info.agent.name}</span>
             <div class="flex gap-2 flex-col sm:gap-4 sm:flex-row">
               <a
-                href="mailto:{info.agent.email}"
+                href={`mailto:${info.agent.email}`}
                 class="text-lg underline flex gap-2 hover:text-[var(--color-sky)] global-focus rounded-xs text-gray-500"
                 ><Mail /> {info.agent.email}</a
               >

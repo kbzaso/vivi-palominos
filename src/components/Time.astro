@@ -1,5 +1,5 @@
 ---
-const getCurrentTimeInSantiago = () => {
+const getCurrentTimeInSantiago = async () => {
   const options: Intl.DateTimeFormatOptions = {
     timeZone: "America/Santiago",
     hour: "2-digit",
@@ -21,7 +21,7 @@ const getSantiagoGMT = () => {
 };
 
 const gmt = getSantiagoGMT();
-let currentTime = getCurrentTimeInSantiago();
+let currentTime = await getCurrentTimeInSantiago();
 
 ---
 

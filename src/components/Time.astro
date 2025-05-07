@@ -8,7 +8,6 @@ const getCurrentTimeInSantiago = () => {
   };
   const time = new Intl.DateTimeFormat("es-CL", options).format(new Date());
   return `${time} hrs.`;
-  return new Intl.DateTimeFormat("es-CL", options).format(new Date());
 };
 const getSantiagoGMT = () => {
   const now = new Date();
@@ -22,17 +21,18 @@ const getSantiagoGMT = () => {
 };
 
 const gmt = getSantiagoGMT();
-const currentTime = getCurrentTimeInSantiago();
+let currentTime = getCurrentTimeInSantiago();
+
 ---
 
 <section
-  class="bg-[var(--color-water)] w-full h-48 rounded-md border-4 border-dashed p-4 flex flex-col justify-between"
+  class="bg-[var(--color-water)] w-full h-48 rounded-md border-4 border-dashed p-4 flex flex-col justify-between md:max-w-xl mx-auto"
 >
   <div>
     <h4 class="font-extrabold text-3xl pb-2">Horarios de atención:</h4>
     <p>Lunes a Viernes de 8 a 18 hrs. ({gmt})</p>
   </div>
   <span class="bg-[var(--color-cloud)] font-extrabold text-xl p-2 rounded-md">
-    {currentTime} 🇨🇱
+    Hora actual: {currentTime} 🇨🇱
   </span>
 </section>

@@ -31,7 +31,7 @@ const featuresMobile = {
 ---
 
 <section class="mx-auto w-full max-w-6xl px-4 mt-96 md:mt-48">
-  <div class="flex justify-between flex-col md:flex-row gap-4 relative">
+  <div class="flex justify-between flex-col md:flex-row gap-10 relative">
     <Card content={featuresMobile.first} loading="eager" />
     <div>
       <Image
@@ -47,20 +47,20 @@ const featuresMobile = {
     <Card specificClass="pt-10 md:mt-60" content={featuresMobile.second} loading={"lazy"} />
   </div>
   <div
-    class="flex justify-between flex-col md:flex-row mt-10 md:-mt-28 relative gap-4"
+    class="flex justify-between flex-col md:flex-row mt-10 md:-mt-28 relative gap-10"
   >
     <Card content={featuresMobile.third} loading={"lazy"} />
     <Image
       src="/boat-route.svg"
       alt="airplain route"
       aria-hidden="true"
-      class="absolute -top-96 left-1/2 -translate-x-1/2 hidden lg:block"
+      class="absolute -top-60 left-1/2 -translate-x-1/2 hidden lg:block"
       width={58}
       height={320}
       loading={"lazy"}
     />
     <Image
-      src="/boat-route.svg"
+      src="/train-route.svg"
       alt="airplain route"
       aria-hidden="true"
       class="absolute top-56 left-1/2 -translate-x-1/2 hidden lg:block"

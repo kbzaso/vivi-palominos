@@ -3,7 +3,24 @@ import { Image } from "astro:assets";
 import Nav from "./Nav.astro";
 import { Mail, Phone } from "@lucide/astro";
 
-const info = {
+type AgentInfo = {
+  name: string;
+  photo: string;
+  email: string;
+  phone: string;
+};
+
+type Info = {
+  title: string;
+  description: string;
+  image: string;
+  url: string;
+  cta: string;
+  ctaWsp: string;
+  agent: AgentInfo;
+};
+
+const info: Info = {
   title: "Viaja con confianza, explora con facilidad",
   description: "Agente de viajes",
   image: "/hero-big.jpg",
@@ -45,34 +62,42 @@ const info = {
         loading={"eager"}
       />
       <div
-        class="flex flex-col space-x-8 md:flex-row md:items-end w-fit"
+        class="flex flex-col space-x-8 md:flex-row md:items-end -mt-20 md:mt-0 w-full"
       >
         <Image
           src="/agent.png"
           alt={info.agent.name}
-          class="h-56 w-48 object-cover md:h-96 md:w-56 shadow-md rounded-lg"
+          class="h-56 w-48 object-cover md:h-96 md:w-56 shadow-md rounded-lg self-center md:self-start"
           width={1000}
           height={1000}
           loading={"eager"}
         />
-        <div class="flex flex-col">
-          <h1 class="mt-4 text-4xl md:text-6xl font-extrabold md:max-w-[800px] lg:text-7xl">
+        <div class="flex flex-col w-full">
+          <h1
+            class="mt-4 text-4xl md:text-6xl font-extrabold md:max-w-[800px] lg:text-7xl text-pretty text-center md:text-left max-w-xl self-center md:self-start"
+          >
             {info.title}
           </h1>
-          <div class="mt-4 flex flex-col md:flex-row md:space-x-4 item-start md:items-end flex-wrap">
-            <span class="text-2xl">{info.agent.name}</span>
-            <a
-              href="mailto:{info.agent.email}"
-              class="text-lg underline flex gap-2 hover:text-[var(--color-sky)] global-focus rounded-xs text-gray-500"><Mail /> {info.agent.email}</a
-            >
-            <a
-              href="tel:{info.agent.phone}"
-              class="text-lg underline global-focus flex gap-2 hover:text-[var(--color-sky)] rounded-xs text-gray-500"><Phone /> {info.agent.phone}</a
-            >
+          <div
+            class="mt-4 flex flex-col md:flex-row md:space-x-4 item-start md:items-end flex-wrap self-center md:self-start"
+          >
+            <span class="text-2xl text-center mb-4 lg:mb-0">{info.agent.name}</span>
+            <div class="flex gap-2 flex-col sm:gap-4 sm:flex-row">
+              <a
+                href="mailto:{info.agent.email}"
+                class="text-lg underline flex gap-2 hover:text-[var(--color-sky)] global-focus rounded-xs text-gray-500"
+                ><Mail /> {info.agent.email}</a
+              >
+              <a
+                href="tel:{info.agent.phone}"
+                class="text-lg underline global-focus flex gap-2 hover:text-[var(--color-sky)] rounded-xs text-gray-500"
+                ><Phone /> {info.agent.phone}</a
+              >
+            </div>
           </div>
           <a
             href="#contact-form"
-            class="global-button w-full md:w-fit mt-4 global-focus"
+            class="global-button w-full md:w-fit mt-4 global-focus max-w-xl self-center md:self-start"
             >{info.cta}</a
           >
         </div>

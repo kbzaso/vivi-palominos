@@ -35,7 +35,7 @@ export const internalEmail = ({
       </Preview>
       <Container style={container}>
         <Img
-          src="https://www.vivipalominos.com/logo_big.svg"
+          src="https://www.vivipalominos.com/logo_big_sky.svg"
           width="170"
           height="50"
           alt="Logo"

@@ -23,7 +23,7 @@ export const confirmationEmail = ({ name }: confirmationEmailProps) => (
       <Preview>Gracias por contactarme, {name} Te contactare pronto.</Preview>
       <Container style={container}>
         <Img
-          src="https://www.vivipalominos.com/logo_big.svg"
+          src="https://www.vivipalominos.com/logo_big_sky.svg"
           width="170"
           height="50"
           alt="Logo"

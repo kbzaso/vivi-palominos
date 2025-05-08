@@ -1,24 +1,18 @@
 ---
 import { Image } from "astro:assets";
 import Time from "./Time.astro";
+import { actions } from "astro:actions";
 
-if (Astro.request.method === "POST") {
-  try {
-    const data = await Astro.request.formData();
-    const firstName = data.get("first-name");
-    const lastName = data.get("last-name");
-    const email = data.get("email");
-    const phone = data.get("phone");
-    const company = data.get("company");
-    const message = data.get("message");
-    // Do something with the data
+const result = Astro.getActionResult(actions.send);
 
-  } catch (error) {
-    if (error instanceof Error) {
-      console.error(error.message);
-    }
-  }
+if (result?.data) {
+  console.log("Form submitted successfully:", result.data);
+} else if (result?.error) {
+  console.error("Error submitting form:", result.error);
+} else {
+  console.log("Form not submitted yet.");
 }
+
 ---
 
 <section
@@ -26,6 +20,7 @@ if (Astro.request.method === "POST") {
 >
   <div class="w-full lg:w-1/2">
     <h3
+      id="contact-form"
       class="font-extrabold text-3xl py-4 mt-2 bg-[var(--color-cloud)] flex items-center justify-center lg:justify-start gap-2"
     >
       ¡El destino lo eliges tú!
@@ -37,23 +32,18 @@ if (Astro.request.method === "POST") {
         height={6}
       />
     </h3>
-    <form
-      id="contact-form"
-      action="api/contact"
-      method="POST"
-      class="mx-auto md:max-w-xl"
-    >
+    <form action={actions.send} method="POST" class="mx-auto md:max-w-xl">
       <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
         <div>
           <label
-            for="first-name"
+            for="firstName"
             class="block text-sm/6 font-semibold text-gray-500">Nombre</label
           >
           <div class="mt-2.5">
             <input
               type="text"
-              name="first-name"
-              id="first-name"
+              name="firstName"
+              id="firstName"
               autocomplete="given-name"
               required
               class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 global-focus"
@@ -62,15 +52,15 @@ if (Astro.request.method === "POST") {
         </div>
         <div>
           <label
-            for="last-name"
+            for="lastName"
             class="block text-sm/6 font-semibold text-gray-500">Apellido</label
           >
           <div class="mt-2.5">
             <input
               required
               type="text"
-              name="last-name"
-              id="last-name"
+              name="lastName"
+              id="lastName"
               autocomplete="family-name"
               class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 global-focus"
             />

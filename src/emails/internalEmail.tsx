@@ -29,7 +29,7 @@ export const internalEmail = ({
 }: internalEmailProps) => (
   <Html>
     <Head />
-    <Body style={main} className='bg-gray-200 dark:bg-gray-200 text-[#171721] dark:text-[#171721]'>
+    <Body style={main}>
       <Preview>
         Te acaba de contactar {name}, a través del formulario de la web.
       </Preview>
@@ -54,11 +54,14 @@ export const internalEmail = ({
           {email ? `Email: ${email}` : "No proporcionó email."}
         </Text>
         <Text style={paragraph}>
-          Mensaje: {message ? message : "No proporcionó mensaje."}
+          ---------------------
+          <br />
+          {message ? message : "No proporcionó mensaje."}
+          <br />
+          ---------------------
         </Text>
         <Text style={paragraph}>
-          Recuerda que una agilización en la respuesta es clave para cerrar una
-          venta.
+          Una aguil respuesta es clave para cerrar una venta.
           <br />
           Tu puedes Vivi, confia en ti, eres la mejor agente de viajes. ♥️
         </Text>

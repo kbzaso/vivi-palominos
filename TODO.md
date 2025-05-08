@@ -5,14 +5,22 @@ I need to work in all this points
 ### Todo
 
 - [ ] Add Internationalization
-- [ ] Add OG Images
 - [ ] Add [custom font](https://astro.build/blog/astro-570/?ref=dailydev)
+- [ ] Improve LinkedIn account
+- [ ] ADD: LinkedIn account link
+- [ ] ADD: Brands that Vivi has worked
 
 ### In Progress
-- [ ] Add favicon
+- [ ] Add OG Images
+- [ ] FIX: svg images on mobile cards
+- [ ] ADD: vivi@vivipalominos email to agentEmail
 
 ### Done ✓
 
+- [x] ADD: React email for create email template
+  - [x] Send email to the user
+  - [x] Send email to vivi@vivipalominos.com
+- [x] Add favicon
 - [x] Responsive Hero
 - [x] Add Footer
 - [x] Add Description

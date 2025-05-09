@@ -61,9 +61,9 @@ export const internalEmail = ({
           ---------------------
         </Text>
         <Text style={paragraph}>
-          Una aguil respuesta es clave para cerrar una venta.
+          Una respuesta ágil es clave para cerrar una venta.
           <br />
-          Tu puedes Vivi, confia en ti, eres la mejor agente de viajes. ♥️
+          Tu puedes Vivi, confía en ti, eres la mejor agente de viajes. ♥️
         </Text>
         <Hr style={hr} />
         <Text style={footer}>

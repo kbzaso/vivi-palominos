@@ -13,10 +13,12 @@ I need to work in all this points
 ### In Progress
 - [ ] Add OG Images
 - [ ] FIX: svg images on mobile cards
-- [ ] ADD: vivi@vivipalominos email to agentEmail
 
 ### Done ✓
 
+- [x] FIX: Server action that validate the types of the inputs
+- [x] ADD: Error hint in the form
+- [x] ADD: vivi@vivipalominos email to agentEmail
 - [x] ADD: React email for create email template
   - [x] Send email to the user
   - [x] Send email to vivi@vivipalominos.com

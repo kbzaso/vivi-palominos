@@ -17,7 +17,13 @@ export const server = {
         message: "Telefono no valido, debes incluir el código de país",
       }),
       company: z.string().optional(),
-      message: z.string().optional(),
+      message: z
+        .string({
+          message: "El mensaje debe tener al menos 20 caracteres",
+        })
+        .min(20, {
+          message: "El mensaje debe tener al menos 20 caracteres",
+        }),
     }),
     handler: async ({
       firstName,

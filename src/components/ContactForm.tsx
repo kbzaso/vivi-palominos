@@ -9,11 +9,10 @@ export default function ContactForm() {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const result = await actions.send(formData);
-    console.log(result);
 
     if (result.data) {
       setResponseMessage({
-        message: "Gracias por tu mensaje, te responderé pronto",
+        success: "Gracias por tu mensaje, te responderé pronto",
       });
     } else if (result.error) {
       setResponseMessage(result.error.fields);
@@ -21,11 +20,11 @@ export default function ContactForm() {
   };
   return (
     <>
-    {responseMessage.message ? (
-      <div className="mt-4 text-green-500 fill-green-500 flex flex-col justify-center items-center gap-2">
+    {responseMessage.success ? (
+      <div className="mt-4 text-green-600 fill-green-600 flex flex-col lg:flex-row justify-start lg:items-start items-center gap-2">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send-icon lucide-send"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>
         <p className="text-xl font-bold text-center max-w-sm">
-          {responseMessage.message}
+          {responseMessage.success}
         </p>
       </div>
     ) : (
@@ -157,8 +156,17 @@ export default function ContactForm() {
               name="message"
               id="message"
               rows={4}
+              aria-describedby={responseMessage ? "message-error" : undefined}
               className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-500 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 global-focus"
             ></textarea>
+            {responseMessage.message && (
+                <div className="mt-4">
+                <p id="message-error" className="text-sm text-red-500 flex gap-2 items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-x-icon lucide-circle-x"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
+                    {responseMessage.message[0]}
+                </p>
+                </div>
+            )}
           </div>
         </div>
       </div>

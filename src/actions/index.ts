@@ -65,23 +65,25 @@ export const server = {
       // SEND EMAIL to the user
 
       const sendEmails = async () => {
-        // Send the email to the user
-        await resend.emails.send({
-          from: agentEmail,
-          to: email.toString(),
-          subject: "Gracias por tu mensaje – Te contactare pronto",
-          html,
-          text,
-        });
+        // Send both emails simultaneously
+        const [userEmailResponse, viviEmailResponse] = await Promise.all([
+          resend.emails.send({
+        from: agentEmail,
+        to: email.toString(),
+        subject: "Gracias por tu mensaje – Te contactare pronto",
+        html,
+        text,
+          }),
+          resend.emails.send({
+        from: agentEmail,
+        to: agentEmail,
+        subject: `Te contactó ${name} a través del formulario de la web`,
+        html: htmlVivi,
+        text: textVivi,
+          }),
+        ]);
 
-        // Send the email to vivi
-        return await resend.emails.send({
-          from: agentEmail,
-          to: agentEmail,
-          subject: `Te contactó ${name} a través del formulario de la web`,
-          html: htmlVivi,
-          text: textVivi,
-        });
+        return viviEmailResponse; // Return the response for Vivi's email
       };
 
       const { data, error } = await sendEmails();

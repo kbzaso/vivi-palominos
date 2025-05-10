@@ -34,3 +34,5 @@ I need to work in all this points
 - [x] Add sections
   - [x] Stylize all the content
   - [x] Translate all the content to spanish
+- [x] FIX: Async fns call when sending emails
+- [x] ADD: Loading state when sending email

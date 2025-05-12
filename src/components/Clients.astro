@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+---
+
+<div class="relative mt-60 md:mt-20 lg:mt-0 py-24 sm:py-32">
+  <div class="mx-auto max-w-6xl px-6 lg:px-8 flex flex-col items-center justify-center">
+    <h2 class="text-center text-lg/8 font-semibold text-gray-900">
+      He tenido la oportunidad de trabajar con los siguientes clientes
+    </h2>
+    <div
+      class="mx-auto mt-10 grid max-w-lg grid-cols-3 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-3 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+    >
+      <Image
+        class="col-span-3 max-h-16 w-full object-contain lg:col-span-1"
+        src="/logo-uc-04.svg"
+        alt="Universidad Católica"
+        width="200"
+        height="48"
+        loading={"eager"}
+      />
+      <Image
+        class="col-span-3 max-h-16 w-full object-contain lg:col-span-1"
+        src="/logo-fundacion.webp"
+        alt="Fundación"
+        width="200"
+        height="48"
+        loading={"eager"}
+      />
+      <Image
+        class="col-span-3 max-h-16 w-full object-contain lg:col-span-1"
+        src="/logo-hockey.webp"
+        alt="Hockey"
+        width="200"
+        height="48"
+        loading={"eager"}
+      />
+    </div>
+  </div>
+</div>

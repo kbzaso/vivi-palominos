@@ -2,15 +2,18 @@
 import "/src/styles/global.css";
 
 const night = "#171721"
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site || 'http://localhost');
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/isologo.svg" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalUrl} />
     <title>Viviana Palominos - Agente de Viajes</title>
     <meta name="description" content="Viaja con confianza, explora con facilidad" />
     <meta property="twitter:image" content="/og.webp">
@@ -20,7 +23,7 @@ const night = "#171721"
     <meta property="og:image" content="/og.webp">
     <meta property="og:site_name" content="Viviana Palominos - Agente de Viajes">
     <meta property="og:title" content="Viviana Palominos - Agente de Viajes">
-    <meta property="og:url" content="https://vivianapalominos.com">
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:description" content="Viaja con confianza, explora con facilidad" />
   </head>
   <body>

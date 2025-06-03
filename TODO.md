@@ -8,14 +8,14 @@ I need to work in all this points
 - [ ] Add [custom font](https://astro.build/blog/astro-570/?ref=dailydev)
 - [ ] Improve LinkedIn account
 - [ ] ADD: LinkedIn account link
-- [ ] ADD: Brands that Vivi has worked
 
 ### In Progress
-- [ ] Add OG Images
+- [ ] ADD: Brands that Vivi has worked
 - [ ] FIX: svg images on mobile cards
 
 ### Done ✓
 
+- [x] Add OG Images
 - [x] FIX: Server action that validate the types of the inputs
 - [x] ADD: Error hint in the form
 - [x] ADD: vivi@vivipalominos email to agentEmail

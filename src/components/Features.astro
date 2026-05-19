@@ -1,7 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import Card from "./Card.astro";
-import * as firstCardMarkdown from "../content/first-card.md";
 
 const featuresMobile = {
   first: {
@@ -34,15 +33,14 @@ const featuresMobile = {
 <section class="mx-auto w-full max-w-6xl px-4 md:mt-48">
   <div class="flex justify-between flex-col md:flex-row gap-10 relative">
     <Card content={featuresMobile.first} loading="eager" />
-    <div>
+    <div class="absolute left-1/2 lg:-top-36 xl:-top-48 -translate-x-1/2 hidden lg:block">
       <Image
         src="/airplain-route.svg"
-        alt="airplain route"
+        alt=""
         aria-hidden="true"
-        class="absolute left-1/2 lg:-top-36 xl:-top-48 -translate-x-1/2 hidden lg:block"
-        width={90}
-        height={100}
-        loading={"eager"}
+        width={91}
+        height={364}
+        loading={"lazy"}
       />
     </div>
     <Card specificClass="pt-10 md:mt-60" content={featuresMobile.second} loading={"lazy"} />

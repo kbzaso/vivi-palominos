@@ -1,8 +1,6 @@
 ---
 import "/src/styles/global.css";
 
-const night = "#171721"
-
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site || 'http://localhost');
 ---
 
@@ -14,6 +12,17 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site || 'http://localhost
     <link rel="icon" type="image/svg+xml" href="/isologo.svg" />
     <meta name="generator" content={Astro.generator} />
     <link rel="canonical" href={canonicalUrl} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400..900,0..100&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400..900,0..100&display=swap"
+    />
     <title>Viviana Palominos - Agente de Viajes</title>
     <meta name="description" content="Viaja con confianza, explora con facilidad" />
     <meta property="twitter:image" content="/og.webp">
@@ -37,13 +46,63 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site || 'http://localhost
     margin: 0;
     width: 100%;
     height: 100%;
-    background-color: #dae1e7;
+    background-color: var(--color-cloud);
+    background-image:
+      radial-gradient(
+        ellipse 80% 60% at 50% 0%,
+        var(--color-cloud-50) 0%,
+        transparent 70%
+      ),
+      radial-gradient(
+        ellipse 60% 40% at 100% 90%,
+        var(--color-sand) 0%,
+        transparent 65%
+      );
+    background-attachment: fixed;
     scroll-behavior: smooth;
+    color: var(--color-text);
   }
   :root {
+    /* ───── Brand core ───── */
     --color-cloud: #dae1e7;
     --color-night: #171721;
     --color-water: #5ec3b7;
     --color-sky: #1b4ea7;
+
+    /* ───── Cool family — tints & shades ─────
+       Use lighter tones for backgrounds / pale washes,
+       darker tones for emphasis, borders, and press states. */
+    --color-cloud-50: #eef2f5;   /* near-white wash */
+    --color-cloud-200: #c0cbd5;  /* soft borders */
+
+    --color-night-300: #5a5d6f;  /* secondary text (replaces gray-500) */
+    --color-night-500: #2f3142;  /* tertiary surfaces */
+    --color-night-700: #1f1f2c;  /* softened dark surface */
+
+    --color-water-100: #d1ede9;  /* pale teal background */
+    --color-water-300: #93d7cd;  /* hover wash, badges */
+    --color-water-700: #2e8a82;  /* pressed / emphasis */
+
+    --color-sky-100: #cad6ee;    /* pale sky tint */
+    --color-sky-700: #143577;    /* deep sky for focus/press */
+
+    /* ───── Warm accents — travel-poster horizon ─────
+       Use sparingly as counterpoints to the cool brand colors.
+       Sand is the only safe surface color; sunset/gold are accents. */
+    --color-sand: #f5ede0;        /* warm cream surface */
+    --color-sand-200: #ead9bd;    /* deeper cream for tagging */
+    --color-sunset: #e58a6f;      /* coral accent (complement to water) */
+    --color-sunset-700: #b85f48;  /* deep sunset for emphasis */
+    --color-gold: #d4a548;        /* sunlight — for rare highlights */
+
+    /* ───── Semantic aliases ─────
+       Reach for these when meaning > literal hue. */
+    --color-surface: var(--color-cloud);
+    --color-surface-alt: var(--color-sand);
+    --color-text: var(--color-night);
+    --color-text-muted: var(--color-night-300);
+    --color-border: var(--color-cloud-200);
+    --color-accent: var(--color-water);
+    --color-accent-warm: var(--color-sunset);
   }
 </style>

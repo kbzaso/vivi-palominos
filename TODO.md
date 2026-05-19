@@ -10,7 +10,7 @@ I need to work in all this points
 - [ ] ADD: LinkedIn account link
 
 ### In Progress
-- [ ] ADD: Brands that Vivi has worked
+- [x] ADD: Brands that Vivi has worked
 - [ ] FIX: svg images on mobile cards
 
 ### Done ✓

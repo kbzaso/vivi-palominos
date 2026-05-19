@@ -1,15 +1,14 @@
 ---
 import { Image } from "astro:assets";
-import { render } from "astro:content";
 
 const { specificClass, content, loading } = Astro.props;
 ---
 
-<div class={`z-10 relative w-full lg:max-w-[500px] ${specificClass}`}>
+<div class={`feature-card reveal-up z-10 relative w-full lg:max-w-[500px] ${specificClass}`}>
   <Image
     src={content.image}
-    alt="Card"
-    class="h-70 object-cover w-full rounded-lg shadow-md"
+    alt={content.alt ?? ""}
+    class="feature-card__image h-70 object-cover w-full rounded-lg shadow-md"
     width={500}
     height={500}
     loading={loading}
@@ -17,15 +16,15 @@ const { specificClass, content, loading } = Astro.props;
   <div class="relative">
     <Image
       src={content.svg}
-      alt="airplain route"
+      alt=""
       aria-hidden="true"
       class="absolute top-4 md:hidden block"
       width={38}
       height={320}
       loading={"lazy"}
     />
-    <div class="pl-12 md:pl-0">
-      <h2 class="font-extrabold text-3xl py-4 mt-2 bg-[var(--color-cloud)]">
+    <div class="pl-12 md:pl-0 text-(--color-night-500)">
+      <h2 class="font-travel text-3xl py-4 mt-2 bg-[var(--color-cloud)]">
         {content.title}
       </h2>
       <p class="text-lg text-pretty">
@@ -37,7 +36,6 @@ const { specificClass, content, loading } = Astro.props;
 
 <style>
   p{
-    margin-block: 1lt;
     margin-block: 1em;
   }
 </style>

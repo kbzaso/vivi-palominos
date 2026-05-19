@@ -1,9 +1,252 @@
 @import "tailwindcss";
 
+/* =========================================================
+   Display font: Fraunces — variable serif with a vintage
+   travel-poster feel. Scoped to the hero headline only.
+   ========================================================= */
+.font-travel {
+  font-family:
+    "Fraunces", "Playfair Display", Georgia, "Times New Roman", serif;
+  font-optical-sizing: auto;
+  font-variation-settings: "SOFT" 50, "opsz" 144;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+}
+
+/* =========================================================
+   Motion system
+   ---------------------------------------------------------
+   Easing & duration tokens, plus a single reduced-motion
+   guard that disables all of the page's decorative motion.
+   ========================================================= */
+:root {
+  --ease-snap-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-soft-in: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: linear(
+    0, 0.009, 0.035 2.1%, 0.141, 0.281 6.7%, 0.723 12.9%, 0.938 16.7%, 1.017,
+    1.077, 1.121, 1.149 24.3%, 1.159, 1.163, 1.161, 1.154 29.9%, 1.129 32.8%,
+    1.051 39.6%, 1.017 43.1%, 0.991, 0.977 51%, 0.974 53.8%, 0.975 57.1%,
+    0.997 69.8%, 1.003 76.9%, 1.004 83.8%, 1
+  );
+
+  --dur-xs: 120ms;
+  --dur-sm: 180ms;
+  --dur-md: 280ms;
+  --dur-lg: 520ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 .global-focus {
   @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-sky)];
 }
 
-.global-button {
-  @apply block rounded-md bg-[var(--color-water)] px-3.5 py-2.5 text-center text-sm font-semibold text-[var(--color-night)] shadow-xs hover:bg-[var(--color-water)]/75 cursor-pointer;
+/* Primary button: tactile press + smooth color blend.
+   Lives in the components layer so utility classes like `flex`
+   on the call site can override `display: block`. */
+@layer components {
+  .global-button {
+    @apply block rounded-md bg-[var(--color-water)] px-3.5 py-2.5 text-center text-sm font-semibold text-[var(--color-night)] shadow-xs hover:bg-[var(--color-water)]/75 cursor-pointer;
+    transition:
+      background-color var(--dur-sm) var(--ease-soft-in),
+      transform var(--dur-xs) var(--ease-snap-out),
+      box-shadow var(--dur-sm) var(--ease-soft-in);
+    will-change: transform;
+  }
+  .global-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px -8px rgba(23, 23, 33, 0.25);
+  }
+  .global-button:active {
+    transform: translateY(0) scale(0.985);
+    transition-duration: var(--dur-xs);
+  }
+}
+
+/* Inline contact links (email, phone) */
+.link-soft {
+  transition: color var(--dur-sm) var(--ease-soft-in);
+}
+.link-soft:hover {
+  color: var(--color-sky);
+}
+
+/* Nav CTA: subtle lift + icon wiggle on hover */
+.nav-cta {
+  transition:
+    background-color var(--dur-sm) var(--ease-soft-in),
+    transform var(--dur-sm) var(--ease-spring);
+  will-change: transform;
+}
+.nav-cta:hover {
+  transform: translateY(-1px);
+}
+.nav-cta__icon {
+  transition: transform var(--dur-md) var(--ease-spring);
+  transform-origin: 50% 50%;
+}
+.nav-cta:hover .nav-cta__icon {
+  transform: rotate(-12deg) scale(1.08);
+}
+
+/* Feature card: hover lift on image, smooth shadow */
+.feature-card__image {
+  transition:
+    transform var(--dur-md) var(--ease-snap-out),
+    box-shadow var(--dur-md) var(--ease-soft-in);
+  will-change: transform;
+}
+.feature-card:hover .feature-card__image {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px -20px rgba(23, 23, 33, 0.35);
+}
+
+/* =========================================================
+   First-paint entrance
+   ---------------------------------------------------------
+   A gentle body fade plus a staggered rise for the hero
+   elements above the fold. Each .enter element reads its
+   own delay via the --enter-delay custom property.
+   ========================================================= */
+body {
+  animation: page-fade-in var(--dur-lg) var(--ease-soft-in) both;
+}
+
+.nav-enter {
+  animation: nav-drop 620ms var(--ease-snap-out) both;
+  animation-delay: 80ms;
+}
+@keyframes nav-drop {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.enter {
+  animation: page-rise-in 720ms var(--ease-snap-out) both;
+  animation-delay: var(--enter-delay, 0ms);
+  will-change: transform, opacity;
+}
+
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes page-rise-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* =========================================================
+   Scroll-driven reveals
+   ---------------------------------------------------------
+   Uses animation-timeline: view() where supported. Elements
+   stay invisible until the browser activates the animation,
+   so we ship an @supports fallback that just leaves them
+   visible (no flash of nothing) where view() is unsupported.
+   ========================================================= */
+@supports (animation-timeline: view()) {
+  .reveal-up {
+    animation: reveal-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 60%;
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   Hero airplane: a slow drift loop so it never sits still
+   ========================================================= */
+.airplain-float {
+  animation:
+    airplain-fly-in 900ms var(--ease-snap-out) both,
+    airplain-drift 7s ease-in-out 900ms infinite alternate;
+  will-change: transform, opacity;
+}
+@keyframes airplain-fly-in {
+  from {
+    opacity: 0;
+    transform: translate3d(40px, -24px, 0) rotate(8deg);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+}
+@keyframes airplain-drift {
+  from {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  to {
+    transform: translate3d(-12px, -8px, 0) rotate(-2deg);
+  }
+}
+
+/* =========================================================
+   Route plane: rides the airplain-route.svg between cards.
+   Scroll-driven via animation-timeline: view().
+   ========================================================= */
+.route-plane {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 28px;
+  height: 28px;
+  pointer-events: none;
+  offset-path: path(
+    "M12 8 C 32 60, 50 130, 56 200 S 60 320, 52 356"
+  );
+  offset-rotate: auto 90deg;
+  offset-distance: 0%;
+}
+@supports (animation-timeline: view()) {
+  .route-plane {
+    animation: route-fly linear both;
+    animation-timeline: view();
+    animation-range: cover 0% cover 100%;
+  }
+}
+@keyframes route-fly {
+  from {
+    offset-distance: 0%;
+  }
+  to {
+    offset-distance: 100%;
+  }
 }

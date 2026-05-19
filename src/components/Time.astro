@@ -26,13 +26,13 @@ let currentTime = await getCurrentTimeInSantiago();
 ---
 
 <section
-  class="bg-[var(--color-water)] w-full h-48 rounded-md border-4 border-dashed p-4 flex flex-col justify-between md:max-w-xl mx-auto"
+  class="bg-[var(--color-cloud-200)] w-full h-48 rounded-md p-4 flex flex-col justify-between md:max-w-xl mx-auto text-(--color-night-500) "
 >
   <div>
     <h4 class="font-extrabold text-3xl pb-2">Horarios de atención:</h4>
     <p>Lunes a Viernes de 8 a 18 hrs. ({gmt})</p>
   </div>
-  <span class="bg-[var(--color-cloud)] font-extrabold text-xl p-2 rounded-md">
+  <span class="font-mono uppercase font-bold text-xl p-2 rounded-md w-fit">
     Hora actual: {currentTime} 🇨🇱
   </span>
 </section>

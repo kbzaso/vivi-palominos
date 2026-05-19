@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Nav from "./Nav.astro";
-import { Mail, Phone } from "@lucide/astro";
+import { Phone, ArrowRight, Plane } from "@lucide/astro";
 import Copied from "./Copied";
 
 type AgentInfo = {
@@ -42,7 +42,7 @@ const info: Info = {
   <header class="relative w-full mx-auto">
     <Image
       src="/hero-big.webp"
-      alt="Hero"
+      alt=""
       class="xl:h-[550px] h-[500px] md:h-[500px] w-full object-cover"
       width={1000}
       height={1000}
@@ -55,7 +55,7 @@ const info: Info = {
       <!-- AIRPLAIN -->
       <Image
         src="/airplain.webp"
-        class="absolute z-10 w-80 right-10 md:right-20 -top-66 md:-top-30"
+        class="airplain-float absolute z-10 w-80 right-10 md:right-20 -top-[16.5rem] md:-top-[7.5rem]"
         alt=""
         aria-hidden="true"
         width={1000}
@@ -63,44 +63,65 @@ const info: Info = {
         loading={"eager"}
       />
       <div
-        class="flex flex-col md:space-x-8 md:flex-row md:items-end -mt-20 md:mt-0 w-full"
+        class="flex flex-col md:space-x-8 md:flex-row md:items-end -mt-20 md:mt-20 w-full"
       >
-        <Image
-          src="/vivi.webp"
-          alt={info.agent.name}
-          class="h-56 w-48 object-cover object-top md:h-96 md:w-56 shadow-md rounded-lg self-center md:self-start"
-          width={1000}
-          height={1000}
-          loading={"eager"}
-        />
+        <figure
+          class="enter relative h-56 w-48 md:h-96 md:w-56 self-center md:self-start shrink-0"
+          style="--enter-delay: 200ms"
+        >
+          <Image
+            src="/vivi.webp"
+            alt={info.agent.name}
+            class="h-full w-full object-cover object-top shadow-xl rounded-lg"
+            width={1000}
+            height={1000}
+            loading={"eager"}
+          />
+          <div
+            aria-hidden="true"
+            class="absolute inset-x-0 bottom-0 h-1/2 rounded-b-lg bg-gradient-to-t from-black/80 via-black/40 to-transparent"
+          ></div>
+          <figcaption
+            class="absolute inset-x-0 bottom-0 px-4 pb-3 text-white"
+          >
+            <p class="text-[0.65rem] uppercase tracking-[0.2em] font-semibold text-white/80">
+              Agente de viajes
+            </p>
+            <p class="font-travel text-2xl md:text-3xl leading-tight mt-0.5">
+              {info.agent.name}
+            </p>
+          </figcaption>
+        </figure>
         <div class="flex flex-col w-full">
+          <p
+            class="enter hidden md:block text-[0.7rem] uppercase tracking-[0.22em] font-semibold text-[var(--color-night)]/60 self-start"
+            style="--enter-delay: 280ms"
+          >
+            30+ años creando viajes inolvidables
+          </p>
           <h1
-            class="mt-4 text-4xl md:text-6xl font-extrabold md:max-w-[800px] lg:text-7xl text-pretty text-center md:text-left max-w-xl self-center md:self-start"
+            class="enter font-travel mt-4 md:mt-3 text-5xl md:text-6xl md:max-w-[820px] lg:text-7xl text-pretty md:text-balance text-center md:text-left max-w-xl self-center md:self-start md:leading-[0.98] text-(--color-night-500)"
+            style="--enter-delay: 320ms"
           >
             {info.title}
           </h1>
           <div
-            class="mt-4 flex flex-col md:flex-row md:space-x-4 item-start md:items-end flex-wrap self-center md:self-start"
+            class="enter mt-5 flex gap-2 flex-col sm:gap-5 sm:flex-row items-center md:items-start self-center md:self-start"
+            style="--enter-delay: 440ms"
           >
-            <span class="text-2xl text-center mb-4 lg:mb-0">{info.agent.name}</span>
-            <div class="flex gap-2 flex-col sm:gap-4 sm:flex-row items-center">
-              <!-- <a
-                href={`mailto:${info.agent.email}`}
-                class="text-lg underline flex gap-2 hover:text-[var(--color-sky)] global-focus rounded-xs text-gray-500"
-                ><Mail /> {info.agent.email}</a
-              > -->
-              <Copied value={info.agent.email} client:load/>
-              <a
-                href="tel:{info.agent.phone}"
-                class="text-lg underline global-focus flex gap-2 hover:text-[var(--color-sky)] rounded-xs text-gray-500"
-                ><Phone /> {info.agent.phone}</a
-              >
-            </div>
+            <Copied value={info.agent.email} client:load/>
+            <span aria-hidden="true" class="hidden sm:inline text-[var(--color-night)]/30 self-center">•</span>
+            <a
+              href={`tel:${info.agent.phone.replace(/\s+/g, "")}`}
+              class="link-soft text-lg underline global-focus flex gap-2 rounded-xs text-gray-700 self-center"
+              ><Phone /> {info.agent.phone}</a
+            >
           </div>
           <a
             href="#contact-form"
-            class="global-button w-full md:w-fit mt-4 global-focus max-w-xl self-center md:self-start"
-            >{info.cta}</a
+            class="enter global-button w-full mt-6 md:mt-7 py-4 text-xl global-focus flex items-center justify-center gap-2 md:max-w-xs font-travel text-(--color-night-500) bg-(--color-water-300) hover:bg-(--color-water) hover:scale-105 transition"
+            style="--enter-delay: 560ms"
+            ><span>{info.cta}</span><Plane class="size-5" aria-hidden="true" /></a
           >
         </div>
       </div>

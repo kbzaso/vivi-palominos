@@ -56,7 +56,7 @@ export default function ContactForm() {
             <div>
               <label
                 htmlFor="firstName"
-                className="block text-sm/6 font-semibold text-gray-500"
+                className="block text-sm/6 font-semibold text-gray-700"
               >
                 Nombre
               </label>
@@ -74,7 +74,7 @@ export default function ContactForm() {
             <div>
               <label
                 htmlFor="lastName"
-                className="block text-sm/6 font-semibold text-gray-500"
+                className="block text-sm/6 font-semibold text-gray-700"
               >
                 Apellido
               </label>
@@ -92,7 +92,7 @@ export default function ContactForm() {
             <div className="sm:col-span-2">
               <label
                 htmlFor="company"
-                className="block text-sm/6 font-semibold text-gray-500"
+                className="block text-sm/6 font-semibold text-gray-700"
               >
                 Empresa
               </label>
@@ -109,7 +109,7 @@ export default function ContactForm() {
             <div className="sm:col-span-2">
               <label
                 htmlFor="email"
-                className="block text-sm/6 font-semibold text-gray-500"
+                className="block text-sm/6 font-semibold text-gray-700"
               >
                 Email
               </label>
@@ -121,7 +121,7 @@ export default function ContactForm() {
                   autoComplete="email"
                   required
                   aria-describedby={responseMessage ? "email-error" : undefined}
-                  className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-500 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 global-focus"
+                  className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 global-focus"
                 />
               </div>
               {responseMessage.email && (
@@ -155,7 +155,7 @@ export default function ContactForm() {
             <div className="sm:col-span-2">
               <label
                 htmlFor="phone"
-                className="block text-sm/6 font-semibold text-gray-500"
+                className="block text-sm/6 font-semibold text-gray-700"
               >
                 Teléfono
               </label>
@@ -167,7 +167,7 @@ export default function ContactForm() {
                   autoComplete="phone"
                   required
                   aria-describedby={responseMessage ? "phone-error" : undefined}
-                  className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-500 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 global-focus"
+                  className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 global-focus"
                 />
               </div>
               {responseMessage.phone && (
@@ -201,7 +201,7 @@ export default function ContactForm() {
             <div className="sm:col-span-2">
               <label
                 htmlFor="message"
-                className="block text-sm/6 font-semibold text-gray-500"
+                className="block text-sm/6 font-semibold text-gray-700"
               >
                 Cuentame que tienes en mente
               </label>
@@ -213,7 +213,7 @@ export default function ContactForm() {
                   aria-describedby={
                     responseMessage ? "message-error" : undefined
                   }
-                  className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-500 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 global-focus"
+                  className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 global-focus"
                 ></textarea>
                 {responseMessage.message && (
                   <div className="mt-4">
